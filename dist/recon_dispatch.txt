@@ -1,0 +1,48 @@
+===============================================================================
+IMPERIAL SCOUT RECONNAISSANCE DISPATCH
+HEADQUARTERS OF RAS ALULA ENGIDA & FITAWRARI GEBEYEHU
+NIGHT OF 29 YEKATIT 1888 (29 FEBRUARY 1896) - ADVANCE MOUNTAIN VANTAGE
+SESSION ID: scout_operative
+===============================================================================
+
+To His Imperial Majesty Menelik II, King of Kings of Ethiopia:
+
+Our peasant balambaras lookouts stationed on the precipitous northern cliffs 
+have observed the campfires of the Italian expeditionary force at Sauria.
+At 21:00 hours, General Baratieri began his advance toward the passes of Adwa.
+
+TERRAIN INTELLIGENCE & OBSERVATION POST IDENTIFICATION:
+Our primary observation redoubt is established on the famous volcanic landmark 
+directly commanding the northern gateway to Adwa town:
+  - Elevation: 2,434 meters above sea level
+  - Coordinates: 14.1750° N, 38.8917° E
+  - Geography: Twin-peaked basalt mountain rising abruptly from the high plateau
+  - Historical Name: Mount Soloda (Primary Landmark Key: SOLODA)
+
+OBSERVED ENEMY MOVEMENTS:
+1. Native Brigade (General Matteo Albertone):
+   Albertone's Tigrayan guides misled his column into the southern depression.
+   He has marched past the true pass into the isolated Enda Kidane Mehret 
+   valley (14.1500° N, 38.8667° E), separating himself from the central army!
+
+2. Central Column (General Giuseppe Arimondi):
+   Advancing toward Mount Raio (14.1667° N, 38.9333° E).
+
+3. Right Column (General Vittorio Dabormida):
+   Diverging toward the Mariam Shavitu ravine (14.1833° N, 38.9500° E).
+
+===============================================================================
+INTERCEPTED SCOUT RUNNER WIRE (SECURE DISPATCH):
+To prevent Italian telegraphers from reading our sovereign tactical clearance,
+the runner enciphered the royal flag token across the 64-character alphabet:
+ALPHABET: ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789_{}
+
+The cipher key is the uppercase landmark name of our scout observation mountain:
+KEY: SOLODA
+
+ENCIPHERED WIRE:
+Sr7oFTXM3Bo0vFI6f0}I3LvpF74Eg_tF2Fw1I5}L48OHK
+
+INTELLIGENCE CHECKSUM (SHA-256):
+c22668465834a54e8ec7aeb82636a441c2cbc8a39bc98c958e382f04f001a4b6
+===============================================================================

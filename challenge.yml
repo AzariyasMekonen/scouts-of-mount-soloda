@@ -1,0 +1,36 @@
+name: "Scouts of Mount Soloda"
+author: "AdwaCTF"
+category: osint
+description: |-
+  Yekatit 1888 (March 1, 1896). The heights of Adwa are shrouded in mist.
+  Emperor Menelik II and Empress Taytu relied on local peasant scouts
+  stationed on the highest basalt peak overlooking the battlefield.
+  
+  An intercepted reconnaissance report from Ras Alula's lookouts has fallen
+  into our hands. Analyze the geographic landmarks, coordinate reports, and
+  historical scout cipher key to decrypt the runner's wire and recover the flag.
+  
+  Flag format: `AdwaCTF{...}`
+value: 100
+type: dynamic
+flags:
+  - AdwaCTF{s0l0d4_sc0u7s_sp0tt3d_b4r4t13r1_1896}
+tags:
+  - easy
+  - osint
+  - geography
+  - history
+  - dynamic-flag
+files:
+  - dist/recon_dispatch.txt
+generator:
+  enabled: true
+  image: "ghcr.io/azariyasmekonen/scouts-of-mount-soloda:latest"
+  output_filename: "recon_dispatch.txt"
+  timeout: 30
+  cache_ttl: 72
+hints:
+  - content: "Identify the name of the observation peak from the coordinates (14.1750 N, 38.8917 E) and elevation (2434m). The landmark name (SOLODA) serves as the Vigenère key to decode the enciphered wire."
+    cost: 10
+state: visible
+version: "0.1"

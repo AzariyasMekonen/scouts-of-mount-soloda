@@ -1,0 +1,9 @@
+# Exclude solve directory as requested
+solve/
+
+# Test output and artifacts
+test_output/
+__pycache__/
+*.py[cod]
+*.swp
+.DS_Store
