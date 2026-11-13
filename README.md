@@ -5,7 +5,7 @@ On the eve of March 1, 1896, Ethiopian lookouts under Ras Alula Engida and Fitaw
 
 ## Mechanics
 - This challenge supports the platform's **On-Demand Dynamic File Generator** to generate personalized challenge files with participants' unique dynamic flags.
-- Players examine `recon_dispatch.txt`.
+- Players examine `output/recon_dispatch.txt` and `output/italian_field_log.json`.
 - The dispatch provides terrain intelligence for the scout observation peak:
   - Elevation: 2,434 meters
   - Coordinates: 14.1750° N, 38.8917° E

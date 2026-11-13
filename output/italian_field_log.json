@@ -1,0 +1,19 @@
+{
+  "operation": "Operazione Adua",
+  "command": "Regio Corpo Truppe Coloniali d'Eritrea",
+  "commander": "Tenente Generale Oreste Baratieri",
+  "date": "1896-03-01T05:30:00+03:00",
+  "intercepted_notes": {
+    "scout_observation_peak": "Mount Soloda",
+    "scout_peak_coordinates": {
+      "latitude": 14.175,
+      "longitude": 38.8917,
+      "elevation_meters": 2434
+    },
+    "albertone_fatal_error": "Marched past Kidane Mehret to Enda Kidane Mehret",
+    "primary_landmark_key": "SOLODA",
+    "verification_hashes": {
+      "flag_sha256": "423e17698aa46b34a1dd2e2808c2b215513903698a8a1819f75d67926472e44e"
+    }
+  }
+}

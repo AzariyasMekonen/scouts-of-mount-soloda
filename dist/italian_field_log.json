@@ -6,17 +6,14 @@
   "intercepted_notes": {
     "scout_observation_peak": "Mount Soloda",
     "scout_peak_coordinates": {
-      "latitude": 14.1750,
+      "latitude": 14.175,
       "longitude": 38.8917,
       "elevation_meters": 2434
     },
     "albertone_fatal_error": "Marched past Kidane Mehret to Enda Kidane Mehret",
-    "imperial_battle_cry": "Embye Menelik",
-    "battle_cry_amharic": "እምቢ ምኒልክ",
+    "primary_landmark_key": "SOLODA",
     "verification_hashes": {
-      "tactical_code_sha256": "8bc15e55bf3d0781e042ca31ed26e984a22ba360a70712fce04d563b61bb67a1",
-      "battle_cry_leet_sha256": "f2fddeb2d1834e8693da5a2d61c8293c144444e84348e1168778040b04c99473",
-      "flag_sha256": "503282f9f8dc967c4fbb6a2d249b01e7aa6cab406005bae9eec81ab5c609375c"
+      "flag_sha256": "423e17698aa46b34a1dd2e2808c2b215513903698a8a1819f75d67926472e44e"
     }
   }
 }

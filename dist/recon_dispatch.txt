@@ -2,7 +2,7 @@
 IMPERIAL SCOUT RECONNAISSANCE DISPATCH
 HEADQUARTERS OF RAS ALULA ENGIDA & FITAWRARI GEBEYEHU
 NIGHT OF 29 YEKATIT 1888 (29 FEBRUARY 1896) - ADVANCE MOUNTAIN VANTAGE
-SESSION ID: scout_operative
+SESSION ID: team_lion_42
 ===============================================================================
 
 To His Imperial Majesty Menelik II, King of Kings of Ethiopia:
@@ -41,8 +41,8 @@ The cipher key is the uppercase landmark name of our scout observation mountain:
 KEY: SOLODA
 
 ENCIPHERED WIRE:
-Sr7oFTXM3Bo0vFI6f0}I3LvpF74Eg_tF2Fw1I5}L48OHK
+Sr7oFTXMOmQAeWNLVCgieLWEkhIC_9JGCC64ON
 
 INTELLIGENCE CHECKSUM (SHA-256):
-c22668465834a54e8ec7aeb82636a441c2cbc8a39bc98c958e382f04f001a4b6
+423e17698aa46b34a1dd2e2808c2b215513903698a8a1819f75d67926472e44e
 ===============================================================================

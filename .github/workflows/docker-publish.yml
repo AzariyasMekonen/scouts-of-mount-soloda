@@ -60,6 +60,7 @@ jobs:
             generator-test:latest
           echo "[*] Verifying generated output..."
           test -s ./test_output/recon_dispatch.txt
+          test -s ./test_output/italian_field_log.json
           cat ./test_output/recon_dispatch.txt
 
       - name: Build and push Docker image to GHCR

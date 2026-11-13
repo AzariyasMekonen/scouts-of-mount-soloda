@@ -22,7 +22,8 @@ tags:
   - history
   - dynamic-flag
 files:
-  - dist/recon_dispatch.txt
+  - output/recon_dispatch.txt
+  - output/italian_field_log.json
 generator:
   enabled: true
   image: "ghcr.io/azariyasmekonen/scouts-of-mount-soloda:latest"
