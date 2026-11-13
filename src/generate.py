@@ -165,8 +165,8 @@ INTELLIGENCE CHECKSUM (SHA-256):
     if Path("/output").is_dir():
         dirs_to_write.add(Path("/output"))
 
-    # If local output/ exists in repo and no custom single file was forced
-    if (here / "output").is_dir() and not output_path and len(sys.argv) <= 1:
+    # If local output/ exists in repo and no custom directory/file was forced
+    if (here / "output").is_dir() and not env_dir and not output_path and len(sys.argv) <= 1:
         dirs_to_write.add(here / "output")
 
     for d in dirs_to_write:
@@ -190,8 +190,8 @@ INTELLIGENCE CHECKSUM (SHA-256):
         except OSError:
             pass
 
-    # Also keep dist/ updated if it exists
-    if (here / "dist").is_dir() and not output_path and len(sys.argv) <= 1:
+    # Also keep dist/ updated if it exists and no custom target was forced
+    if (here / "dist").is_dir() and not env_dir and not output_path and len(sys.argv) <= 1:
         try:
             with open(here / "dist" / "recon_dispatch.txt", "w", encoding="utf-8") as f:
                 f.write(dispatch_content)
