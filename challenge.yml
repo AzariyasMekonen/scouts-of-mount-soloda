@@ -2,13 +2,11 @@ name: "Scouts of Mount Soloda"
 author: "AdwaCTF"
 category: osint
 description: |-
-  Yekatit 1888 (March 1, 1896). The heights of Adwa are shrouded in mist.
-  Emperor Menelik II and Empress Taytu relied on local peasant scouts
-  stationed on the highest basalt peak overlooking the battlefield.
+  "From the heights above the clouds, our eyes see every camp on the plains of Sauria."
   
-  An intercepted reconnaissance report from Ras Alula's lookouts has fallen
-  into our hands. Analyze the geographic landmarks, coordinate reports, and
-  historical scout cipher key to decrypt the runner's wire and recover the flag.
+  An intercepted runner's dispatch has arrived from Ras Alula's lookouts.
+  The scouts report enemy columns in motion, but their tactical clearance
+  is locked behind the name of their mountain perch.
   
   Flag format: `AdwaCTF{...}`
 value: 100
