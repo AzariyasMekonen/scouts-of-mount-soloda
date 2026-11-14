@@ -7,22 +7,22 @@ SESSION ID: scout_operative
 
 To His Imperial Majesty Menelik II, King of Kings of Ethiopia:
 
-Our peasant balambaras lookouts stationed on the precipitous northern cliffs 
+Our peasant balambaras lookouts stationed on the precipitous northern cliffs
 have observed the campfires of the Italian expeditionary force at Sauria.
 At 21:00 hours, General Baratieri began his advance toward the passes of Adwa.
 
 TERRAIN INTELLIGENCE & OBSERVATION POST IDENTIFICATION:
-Our primary observation redoubt is established on the famous volcanic landmark 
+Our primary observation redoubt is established on a famous volcanic landmark
 directly commanding the northern gateway to Adwa town:
   - Elevation: 2,434 meters above sea level
   - Coordinates: 14.1750° N, 38.8917° E
   - Geography: Twin-peaked basalt mountain rising abruptly from the high plateau
-  - Historical Name: Mount Soloda (Primary Landmark Key: SOLODA)
+  - Landmark codename: [CLASSIFIED — refer to italian_field_log.json]
 
 OBSERVED ENEMY MOVEMENTS:
 1. Native Brigade (General Matteo Albertone):
    Albertone's Tigrayan guides misled his column into the southern depression.
-   He has marched past the true pass into the isolated Enda Kidane Mehret 
+   He has marched past the true pass into the isolated Enda Kidane Mehret
    valley (14.1500° N, 38.8667° E), separating himself from the central army!
 
 2. Central Column (General Giuseppe Arimondi):
@@ -33,12 +33,12 @@ OBSERVED ENEMY MOVEMENTS:
 
 ===============================================================================
 INTERCEPTED SCOUT RUNNER WIRE (SECURE DISPATCH):
-To prevent Italian telegraphers from reading our sovereign tactical clearance,
-the runner enciphered the royal flag token across the 64-character alphabet:
+To prevent Italian telegraphers from reading our tactical clearance, the runner
+enciphered the royal flag token using the 64-character imperial alphabet:
 ALPHABET: ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789_{}
 
-The cipher key is the uppercase landmark name of our scout observation mountain:
-KEY: SOLODA
+The cipher type is Vigenère. The key is derived from the geographic identity
+of the observation post recorded in the field log — UPPERCASE, one word.
 
 ENCIPHERED WIRE:
 Sr7oFTXM3Bo0vFI6f0}I3LvpF74Eg_tF2Fw1I5}L48OHK

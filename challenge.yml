@@ -31,7 +31,7 @@ generator:
   timeout: 30
   cache_ttl: 72
 hints:
-  - content: "Identify the name of the observation peak from the coordinates (14.1750 N, 38.8917 E) and elevation (2434m). The landmark name (SOLODA) serves as the Vigenère key to decode the enciphered wire."
+  - content: "Use the coordinates (14.1750° N, 38.8917° E) and elevation (2434m) from the field log to identify the prominent twin-peaked mountain overlooking Adwa. Its single-word name (in UPPERCASE) is the Vigenère cipher key."
     cost: 10
 state: visible
-version: "0.1"
+version: "0.2"
