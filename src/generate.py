@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-On-Demand Dynamic Challenge File Generator for Scouts of Mount Soloda (AdwaCTF).
+On-Demand Dynamic Challenge File Generator — Scouts of the Northern Watch (AdwaCTF).
 
 Environment variables:
   - FLAG: Dynamic participant-specific flag
@@ -15,9 +15,11 @@ import json
 import hashlib
 from pathlib import Path
 
+# 64-character imperial alphabet (internal only — NOT published to players)
 ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789_{}"
 M = len(ALPHABET)  # 64
 
+# Vigenère key — the OSINT answer, never written to any output file
 KEY = "SOLODA"
 
 
@@ -80,81 +82,94 @@ def main():
     target_dir.mkdir(parents=True, exist_ok=True)
 
     encrypted_wire = encrypt_text(flag, KEY)
-    wire_hash = hashlib.sha256(flag.encode()).hexdigest()
 
-    # NOTE: KEY is intentionally NOT included in the output files.
-    # Players must research the geographic identity of the scout peak using
-    # the coordinates and elevation provided in the field log.
+    # -------------------------------------------------------------------------
+    # recon_dispatch.txt — pure narrative intelligence report.
+    # No ciphertext, no alphabet, no cipher hint, no crypto content whatsoever.
+    # -------------------------------------------------------------------------
     dispatch_content = f"""===============================================================================
 IMPERIAL SCOUT RECONNAISSANCE DISPATCH
 HEADQUARTERS OF RAS ALULA ENGIDA & FITAWRARI GEBEYEHU
-NIGHT OF 29 YEKATIT 1888 (29 FEBRUARY 1896) - ADVANCE MOUNTAIN VANTAGE
+NIGHT OF 29 YEKATIT 1888 (29 FEBRUARY 1896) — ADVANCE MOUNTAIN VANTAGE
 SESSION ID: {user_id}
 ===============================================================================
 
 To His Imperial Majesty Menelik II, King of Kings of Ethiopia:
 
-Our peasant balambaras lookouts stationed on the precipitous northern cliffs
-have observed the campfires of the Italian expeditionary force at Sauria.
-At 21:00 hours, General Baratieri began his advance toward the passes of Adwa.
+Our balambaras lookouts, stationed atop the northern basalt crags, relay the
+following field intelligence. Enemy campfires burn across the plateau of Sauria.
+At 21:00, General Baratieri's columns departed their camp — four brigades, four
+roads, four fates. What follows is the last confirmed scout report before dawn.
 
-TERRAIN INTELLIGENCE & OBSERVATION POST IDENTIFICATION:
-Our primary observation redoubt is established on a famous volcanic landmark
-directly commanding the northern gateway to Adwa town:
-  - Elevation: 2,434 meters above sea level
-  - Coordinates: 14.1750° N, 38.8917° E
-  - Geography: Twin-peaked basalt mountain rising abruptly from the high plateau
-  - Landmark codename: [CLASSIFIED — refer to italian_field_log.json]
+OBSERVED ENEMY DISPOSITIONS:
 
-OBSERVED ENEMY MOVEMENTS:
-1. Native Brigade (General Matteo Albertone):
-   Albertone's Tigrayan guides misled his column into the southern depression.
-   He has marched past the true pass into the isolated Enda Kidane Mehret
-   valley (14.1500° N, 38.8667° E), separating himself from the central army!
+  I.  NATIVE BRIGADE — Brigadier General Matteo Albertone
+      Guides leading Albertone's column have taken a southern branch path
+      below the true pass. His askari have crossed into the Enda Kidane
+      Mehret valley and are cut off from Arimondi's flank.
+      Last position: 14.1500° N, 38.8667° E (17:00 hrs)
 
-2. Central Column (General Giuseppe Arimondi):
-   Advancing toward Mount Raio (14.1667° N, 38.9333° E).
+  II. CENTRAL COLUMN — General Giuseppe Arimondi
+      Arimondi advances on the Mariam Shavitu road, converging toward
+      the high ravine east of our position.
+      Last position: 14.1667° N, 38.9333° E (20:30 hrs)
 
-3. Right Column (General Vittorio Dabormida):
-   Diverging toward the Mariam Shavitu ravine (14.1833° N, 38.9500° E).
+  III. RIGHT WING — General Vittorio Dabormida
+      Dabormida's brigade diverges northward along the Abbai Garima.
+      Their direction of march takes them into broken ground.
+      Last position: 14.1833° N, 38.9500° E (21:00 hrs)
 
-===============================================================================
-INTERCEPTED SCOUT RUNNER WIRE (SECURE DISPATCH):
-To prevent Italian telegraphers from reading our tactical clearance, the runner
-enciphered the royal flag token using the 64-character imperial alphabet:
-ALPHABET: {ALPHABET}
+  IV. RESERVE — General Giuseppe Ellena
+      Ellena's force remains at Sauria camp, 14.1250° N, 38.8333° E.
+      No movement observed as of last scout relay.
 
-The cipher type is Vigenère. The key is derived from the geographic identity
-of the observation post recorded in the field log — UPPERCASE, one word.
+FIELD ASSESSMENT:
+The Italian high command has issued a general advance trusting that the four
+columns will converge before dawn. Baratieri does not know that Albertone
+has already overextended. Our commander expects confusion in the enemy's
+ranks before first light.
 
-ENCIPHERED WIRE:
-{encrypted_wire}
+A runner has been dispatched to field headquarters with a sealed tactical
+message. It was encoded at our observation post before departure.
+The post's field log accompanies this dispatch.
 
-INTELLIGENCE CHECKSUM (SHA-256):
-{wire_hash}
+Fitawrari Gebeyehu — Northern Watch Command
 ===============================================================================
 """
 
-    # JSON field log — coordinates present but landmark name redacted.
-    # Players must resolve the coordinates externally to identify the key.
+    # -------------------------------------------------------------------------
+    # italian_field_log.json — the structural evidence.
+    # Contains the ciphertext as intercepted_transmission (opaque blob).
+    # Coordinates of the observation post are present — no name, no cipher hint.
+    # Players must research the peak, discover the cipher scheme, decrypt.
+    # -------------------------------------------------------------------------
     field_log = {
         "operation": "Operazione Adua",
         "command": "Regio Corpo Truppe Coloniali d'Eritrea",
         "commander": "Tenente Generale Oreste Baratieri",
         "date": "1896-03-01T05:30:00+03:00",
-        "intercepted_notes": {
-            "scout_observation_peak": {
+        "field_stations": [
+            {
+                "station_id": "NW-PRIMARY",
+                "type": "observation_post",
                 "latitude": 14.1750,
                 "longitude": 38.8917,
                 "elevation_meters": 2434,
-                "classification": "CLASSIFIED"
+                "description": "Twin-peaked basalt prominence. Northern gateway to Adwa."
             },
-            "albertone_fatal_error": "Marched past Kidane Mehret to Enda Kidane Mehret",
-            "cipher_note": "Vigenere over 64-char alphabet. Key = UPPERCASE name of the peak at the coordinates above.",
-            "verification_hashes": {
-                "flag_sha256": wire_hash
+            {
+                "station_id": "NW-RELAY",
+                "type": "runner_relay",
+                "latitude": 14.1600,
+                "longitude": 38.8800,
+                "elevation_meters": 2180,
+                "description": "Mule-track junction, relay handoff point."
             }
-        }
+        ],
+        "intercepted_transmission": encrypted_wire,
+        "alberto_ne_last_signal": "COLUMN ADVANCING — KIDANE MEHRET PASS — ETA DAWN",
+        "baratieri_command_note": "Advance confirmed. Columns to converge at designated ridgeline.",
+        "remarks": "Signal captured by field telegraph operator at NW-PRIMARY. Contents sealed."
     }
     field_log_content = json.dumps(field_log, indent=2) + "\n"
 

@@ -1,13 +1,13 @@
-name: "Scouts of Mount Soloda"
+name: "Scouts of the Northern Watch"
 author: "AdwaCTF"
 category: osint
 description: |-
   "From the heights above the clouds, our eyes see every camp on the plains of Sauria."
-  
-  An intercepted runner's dispatch has arrived from Ras Alula's lookouts.
-  The scouts report enemy columns in motion, but their tactical clearance
-  is locked behind the name of their mountain perch.
-  
+
+  Ras Alula's scouts sent a sealed runner's message before the battle broke.
+  Two documents survived — a field dispatch and a signals log. The message
+  itself sits encoded in the log, but the key died with the mountain.
+
   Flag format: `AdwaCTF{...}`
 value: 100
 type: dynamic
@@ -29,7 +29,7 @@ generator:
   timeout: 30
   cache_ttl: 72
 hints:
-  - content: "Use the coordinates (14.1750° N, 38.8917° E) and elevation (2434m) from the field log to identify the prominent twin-peaked mountain overlooking Adwa. Its single-word name (in UPPERCASE) is the Vigenère cipher key."
+  - content: "The field log records coordinates for the primary observation post. Look the location up — what prominent landmark stood there?"
     cost: 10
 state: visible
-version: "0.2"
+version: "0.3"
