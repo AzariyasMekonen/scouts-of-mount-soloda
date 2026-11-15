@@ -3,7 +3,6 @@ FROM python:3.12-slim
 WORKDIR /app
 
 COPY src/ /app/src/
-COPY flag.txt /app/flag.txt
 
 RUN mkdir -p /output && chmod 777 /output
 

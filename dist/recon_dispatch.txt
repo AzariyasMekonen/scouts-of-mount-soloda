@@ -7,42 +7,21 @@ SESSION ID: scout_operative
 
 To His Imperial Majesty Menelik II, King of Kings of Ethiopia:
 
-Our balambaras lookouts, stationed atop the northern basalt crags, relay the
-following field intelligence. Enemy campfires burn across the plateau of Sauria.
-At 21:00, General Baratieri's columns departed their camp — four brigades, four
-roads, four fates. What follows is the last confirmed scout report before dawn.
+Our balambaras lookouts, stationed on the precipitous northern crags, report
+enemy columns departing their camp at Sauria under cover of night.
 
 OBSERVED ENEMY DISPOSITIONS:
+  - Native Brigade (Albertone): 14.1500° N, 38.8667° E — Diverging into southern valley.
+  - Central Column (Arimondi):  14.1667° N, 38.9333° E — Advancing toward high ravine.
+  - Right Wing (Dabormida):     14.1833° N, 38.9500° E — Moving through northern gorge.
+  - Reserve (Ellena):           14.1250° N, 38.8333° E — Static at Sauria perimeter.
 
-  I.  NATIVE BRIGADE — Brigadier General Matteo Albertone
-      Guides leading Albertone's column have taken a southern branch path
-      below the true pass. His askari have crossed into the Enda Kidane
-      Mehret valley and are cut off from Arimondi's flank.
-      Last position: 14.1500° N, 38.8667° E (17:00 hrs)
+PRIMARY OBSERVATION REDOUBT:
+  - Coordinates: 14.1750° N, 38.8917° E
+  - Elevation:   2,434 m
 
-  II. CENTRAL COLUMN — General Giuseppe Arimondi
-      Arimondi advances on the Mariam Shavitu road, converging toward
-      the high ravine east of our position.
-      Last position: 14.1667° N, 38.9333° E (20:30 hrs)
-
-  III. RIGHT WING — General Vittorio Dabormida
-      Dabormida's brigade diverges northward along the Abbai Garima.
-      Their direction of march takes them into broken ground.
-      Last position: 14.1833° N, 38.9500° E (21:00 hrs)
-
-  IV. RESERVE — General Giuseppe Ellena
-      Ellena's force remains at Sauria camp, 14.1250° N, 38.8333° E.
-      No movement observed as of last scout relay.
-
-FIELD ASSESSMENT:
-The Italian high command has issued a general advance trusting that the four
-columns will converge before dawn. Baratieri does not know that Albertone
-has already overextended. Our commander expects confusion in the enemy's
-ranks before first light.
-
-A runner has been dispatched to field headquarters with a sealed tactical
-message. It was encoded at our observation post before departure.
-The post's field log accompanies this dispatch.
+INTERCEPTED RUNNER WIRE:
+SrhoFTX{g0w0r4_vc0m7g_dd0wt3v_p4c4h13u1_1896}
 
 Fitawrari Gebeyehu — Northern Watch Command
 ===============================================================================

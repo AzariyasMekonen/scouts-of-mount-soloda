@@ -3,7 +3,7 @@
 On-Demand Dynamic Challenge File Generator — Scouts of the Northern Watch (AdwaCTF).
 
 Environment variables:
-  - FLAG: Dynamic participant-specific flag
+  - FLAG: Dynamic participant-specific flag (e.g. AdwaCTF{...})
   - USER_ID: Optional participant or team identifier
   - OUTPUT_FILENAME: Primary output file name (default: recon_dispatch.txt)
   - OUTPUT_DIR: Target directory to write to
@@ -12,28 +12,27 @@ Environment variables:
 import os
 import sys
 import json
-import hashlib
 from pathlib import Path
 
-# 64-character imperial alphabet (internal only — NOT published to players)
-ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789_{}"
-M = len(ALPHABET)  # 64
-
-# Vigenère key — the OSINT answer, never written to any output file
 KEY = "SOLODA"
 
 
-def encrypt_text(text: str, key: str) -> str:
-    out = []
-    for i, c in enumerate(text):
-        if c in ALPHABET:
-            k = key[i % len(key)]
-            shift = ALPHABET.index(k)
-            c_idx = ALPHABET.index(c)
-            out.append(ALPHABET[(c_idx + shift) % M])
+def vigenere_encrypt(text: str, key: str) -> str:
+    key = key.upper()
+    res = []
+    ki = 0
+    for c in text:
+        if "A" <= c <= "Z":
+            k = ord(key[ki % len(key)]) - ord("A")
+            res.append(chr((ord(c) - ord("A") + k) % 26 + ord("A")))
+            ki += 1
+        elif "a" <= c <= "z":
+            k = ord(key[ki % len(key)]) - ord("A")
+            res.append(chr((ord(c) - ord("a") + k) % 26 + ord("a")))
+            ki += 1
         else:
-            out.append(c)
-    return "".join(out)
+            res.append(c)
+    return "".join(res)
 
 
 def get_flag() -> str:
@@ -52,14 +51,14 @@ def get_flag() -> str:
 
 
 def main():
-    flag    = get_flag()
+    flag = get_flag()
     user_id = os.environ.get("USER_ID", "scout_operative").strip()
-    here    = Path(__file__).resolve().parent.parent
+    here = Path(__file__).resolve().parent.parent
 
     output_path = os.environ.get("OUTPUT_PATH", "").strip()
     if output_path:
         target_file = Path(output_path).resolve()
-        target_dir  = target_file.parent
+        target_dir = target_file.parent
         target_dispatch_name = target_file.name
     elif len(sys.argv) > 1 and sys.argv[1].strip():
         arg_path = Path(sys.argv[1].strip()).resolve()
@@ -81,12 +80,9 @@ def main():
 
     target_dir.mkdir(parents=True, exist_ok=True)
 
-    encrypted_wire = encrypt_text(flag, KEY)
+    encrypted_wire = vigenere_encrypt(flag, KEY)
 
-    # -------------------------------------------------------------------------
-    # recon_dispatch.txt — pure narrative intelligence report.
-    # No ciphertext, no alphabet, no cipher hint, no crypto content whatsoever.
-    # -------------------------------------------------------------------------
+    # Clean narrative recon dispatch — atmospheric, concise, no spoilers
     dispatch_content = f"""===============================================================================
 IMPERIAL SCOUT RECONNAISSANCE DISPATCH
 HEADQUARTERS OF RAS ALULA ENGIDA & FITAWRARI GEBEYEHU
@@ -96,80 +92,37 @@ SESSION ID: {user_id}
 
 To His Imperial Majesty Menelik II, King of Kings of Ethiopia:
 
-Our balambaras lookouts, stationed atop the northern basalt crags, relay the
-following field intelligence. Enemy campfires burn across the plateau of Sauria.
-At 21:00, General Baratieri's columns departed their camp — four brigades, four
-roads, four fates. What follows is the last confirmed scout report before dawn.
+Our balambaras lookouts, stationed on the precipitous northern crags, report
+enemy columns departing their camp at Sauria under cover of night.
 
 OBSERVED ENEMY DISPOSITIONS:
+  - Native Brigade (Albertone): 14.1500° N, 38.8667° E — Diverging into southern valley.
+  - Central Column (Arimondi):  14.1667° N, 38.9333° E — Advancing toward high ravine.
+  - Right Wing (Dabormida):     14.1833° N, 38.9500° E — Moving through northern gorge.
+  - Reserve (Ellena):           14.1250° N, 38.8333° E — Static at Sauria perimeter.
 
-  I.  NATIVE BRIGADE — Brigadier General Matteo Albertone
-      Guides leading Albertone's column have taken a southern branch path
-      below the true pass. His askari have crossed into the Enda Kidane
-      Mehret valley and are cut off from Arimondi's flank.
-      Last position: 14.1500° N, 38.8667° E (17:00 hrs)
+PRIMARY OBSERVATION REDOUBT:
+  - Coordinates: 14.1750° N, 38.8917° E
+  - Elevation:   2,434 m
 
-  II. CENTRAL COLUMN — General Giuseppe Arimondi
-      Arimondi advances on the Mariam Shavitu road, converging toward
-      the high ravine east of our position.
-      Last position: 14.1667° N, 38.9333° E (20:30 hrs)
-
-  III. RIGHT WING — General Vittorio Dabormida
-      Dabormida's brigade diverges northward along the Abbai Garima.
-      Their direction of march takes them into broken ground.
-      Last position: 14.1833° N, 38.9500° E (21:00 hrs)
-
-  IV. RESERVE — General Giuseppe Ellena
-      Ellena's force remains at Sauria camp, 14.1250° N, 38.8333° E.
-      No movement observed as of last scout relay.
-
-FIELD ASSESSMENT:
-The Italian high command has issued a general advance trusting that the four
-columns will converge before dawn. Baratieri does not know that Albertone
-has already overextended. Our commander expects confusion in the enemy's
-ranks before first light.
-
-A runner has been dispatched to field headquarters with a sealed tactical
-message. It was encoded at our observation post before departure.
-The post's field log accompanies this dispatch.
+INTERCEPTED RUNNER WIRE:
+{encrypted_wire}
 
 Fitawrari Gebeyehu — Northern Watch Command
 ===============================================================================
 """
 
-    # -------------------------------------------------------------------------
-    # italian_field_log.json — the structural evidence.
-    # Contains the ciphertext as intercepted_transmission (opaque blob).
-    # Coordinates of the observation post are present — no name, no cipher hint.
-    # Players must research the peak, discover the cipher scheme, decrypt.
-    # -------------------------------------------------------------------------
     field_log = {
         "operation": "Operazione Adua",
         "command": "Regio Corpo Truppe Coloniali d'Eritrea",
         "commander": "Tenente Generale Oreste Baratieri",
         "date": "1896-03-01T05:30:00+03:00",
-        "field_stations": [
-            {
-                "station_id": "NW-PRIMARY",
-                "type": "observation_post",
-                "latitude": 14.1750,
-                "longitude": 38.8917,
-                "elevation_meters": 2434,
-                "description": "Twin-peaked basalt prominence. Northern gateway to Adwa."
-            },
-            {
-                "station_id": "NW-RELAY",
-                "type": "runner_relay",
-                "latitude": 14.1600,
-                "longitude": 38.8800,
-                "elevation_meters": 2180,
-                "description": "Mule-track junction, relay handoff point."
-            }
-        ],
-        "intercepted_transmission": encrypted_wire,
-        "alberto_ne_last_signal": "COLUMN ADVANCING — KIDANE MEHRET PASS — ETA DAWN",
-        "baratieri_command_note": "Advance confirmed. Columns to converge at designated ridgeline.",
-        "remarks": "Signal captured by field telegraph operator at NW-PRIMARY. Contents sealed."
+        "observation_post": {
+            "latitude": 14.1750,
+            "longitude": 38.8917,
+            "elevation_meters": 2434
+        },
+        "intercepted_transmission": encrypted_wire
     }
     field_log_content = json.dumps(field_log, indent=2) + "\n"
 

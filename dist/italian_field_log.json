@@ -3,26 +3,10 @@
   "command": "Regio Corpo Truppe Coloniali d'Eritrea",
   "commander": "Tenente Generale Oreste Baratieri",
   "date": "1896-03-01T05:30:00+03:00",
-  "field_stations": [
-    {
-      "station_id": "NW-PRIMARY",
-      "type": "observation_post",
-      "latitude": 14.175,
-      "longitude": 38.8917,
-      "elevation_meters": 2434,
-      "description": "Twin-peaked basalt prominence. Northern gateway to Adwa."
-    },
-    {
-      "station_id": "NW-RELAY",
-      "type": "runner_relay",
-      "latitude": 14.16,
-      "longitude": 38.88,
-      "elevation_meters": 2180,
-      "description": "Mule-track junction, relay handoff point."
-    }
-  ],
-  "intercepted_transmission": "Sr7oFTXM3Bo0vFI6f0}I3LvpF74Eg_tF2Fw1I5}L48OHK",
-  "alberto_ne_last_signal": "COLUMN ADVANCING \u2014 KIDANE MEHRET PASS \u2014 ETA DAWN",
-  "baratieri_command_note": "Advance confirmed. Columns to converge at designated ridgeline.",
-  "remarks": "Signal captured by field telegraph operator at NW-PRIMARY. Contents sealed."
+  "observation_post": {
+    "latitude": 14.175,
+    "longitude": 38.8917,
+    "elevation_meters": 2434
+  },
+  "intercepted_transmission": "SrhoFTX{g0w0r4_vc0m7g_dd0wt3v_p4c4h13u1_1896}"
 }
